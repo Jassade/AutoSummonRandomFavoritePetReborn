@@ -1,0 +1,12 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.blizzard.com/wow/ui/ ..\..\FrameXML\UI.xsd">
+
+<Script File="AutoSummonRandomFavoritePetReborn.lua"/>
+    <Frame name="AutoSummonRandomFavoritePetRebornFrame">
+        <Scripts>
+            <OnLoad function="AutoSummonRandomFavoritePetReborn_OnLoad"></OnLoad>
+            <OnEvent function="AutoSummonRandomFavoritePetReborn_OnEvent"></OnEvent>
+        </Scripts>
+    </Frame>
+</Ui>

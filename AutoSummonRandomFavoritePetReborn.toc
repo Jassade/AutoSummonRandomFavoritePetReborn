@@ -1,0 +1,11 @@
+## Interface: 110002
+## Title: Auto Summon Random Favorite Pet Reborn
+## Notes: Set them all free!
+## Author: Gerop, Jassade
+## Version: 1.0.1
+## SavedVariables: AutoSummonRandomFavoritePetRebornDB
+
+libs\load_libs.xml
+AutoSummonRandomFavoritePetReborn.xml
+
+
