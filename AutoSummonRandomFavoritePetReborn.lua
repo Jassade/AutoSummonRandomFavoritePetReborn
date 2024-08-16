@@ -57,8 +57,13 @@ local function has_value (tab, val)
 end
 
 local function isInvisible()
-    for i=1,40 do
-        local _, _, _, _, _, _, _, _, _, spellId = UnitAura("player",i)
+    for i=1,255 do
+        local auraData = C_UnitAuras.GetAuraDataByIndex("player", i)
+        if not auraData then
+            return false
+        end
+
+        local spellId = auraData.spellId
         if not spellId then
             return false
         elseif has_value(shadowmeldIds, spellId) or has_value(invisibilityIds, spellId) or has_value(greaterInvisibilityIds, spellId)
@@ -70,8 +75,13 @@ local function isInvisible()
 end
 
 local function isFeignDeath()
-    for i=1,40 do
-        local _, _, _, _, _, _, _, _, _, spellId = UnitAura("player",i)
+    for i=1,255 do
+        local auraData = C_UnitAuras.GetAuraDataByIndex("player", i)
+        if not auraData then
+            return false
+        end
+
+        local spellId = auraData.spellId
         if not spellId then
             return false
         elseif has_value(feignDeathIds, spellId) then
@@ -111,7 +121,7 @@ end
 local function addBlizzardOptions()
 
     local options = CreateFrame("FRAME", "AutoSummonRandomFavoritePetRebornOptions")
-    local title = GetAddOnMetadata(addonName, "Title")
+    local title = C_AddOns.GetAddOnMetadata(addonName, "Title")
     options.name = title
 
     local category = Settings.RegisterCanvasLayoutCategory(options, title)
