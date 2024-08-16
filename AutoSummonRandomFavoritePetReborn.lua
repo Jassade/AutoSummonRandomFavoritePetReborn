@@ -57,8 +57,13 @@ local function has_value (tab, val)
 end
 
 local function isInvisible()
-    for i=1,40 do
-        local _, _, _, _, _, _, _, _, _, spellId = C_UnitAuras.GetAuraDataByIndex("player",i).spellId
+    for i=1,255 do
+        local auraData = C_UnitAuras.GetAuraDataByIndex("player", i)
+        if not auraData then
+            return false
+        end
+
+        local spellId = auraData.spellId
         if not spellId then
             return false
         elseif has_value(shadowmeldIds, spellId) or has_value(invisibilityIds, spellId) or has_value(greaterInvisibilityIds, spellId)
@@ -70,8 +75,13 @@ local function isInvisible()
 end
 
 local function isFeignDeath()
-    for i=1,40 do
-        local _, _, _, _, _, _, _, _, _, spellId = C_UnitAuras.GetAuraDataByIndex("player",i).spellId
+    for i=1,255 do
+        local auraData = C_UnitAuras.GetAuraDataByIndex("player", i)
+        if not auraData then
+            return false
+        end
+
+        local spellId = auraData.spellId
         if not spellId then
             return false
         elseif has_value(feignDeathIds, spellId) then
